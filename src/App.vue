@@ -19,7 +19,6 @@
           <span class="d-none d-md-inline">{{ isPreviewMode ? 'Editöre Dön' : 'Sitede Görüntüle' }}</span>
         </button>
         <button class="btn btn-dark btn-sm rounded-pill px-3 px-md-4 fw-bold d-flex align-items-center" @click="exportData">
-          <i class="fa-solid fa-code me-md-2"></i> 
           <span class="d-none d-md-inline"><i class="fa fa-save me-2"></i>Kaydet</span>
         </button>
       </div>
