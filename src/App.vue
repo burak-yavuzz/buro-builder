@@ -20,7 +20,7 @@
         </button>
         <button class="btn btn-dark btn-sm rounded-pill px-3 px-md-4 fw-bold d-flex align-items-center" @click="exportData">
           <i class="fa-solid fa-code me-md-2"></i> 
-          <span class="d-none d-md-inline">JSON Kaydet</span>
+          <span class="d-none d-md-inline"><i class="fa fa-save me-2"></i>Kaydet</span>
         </button>
       </div>
     </header>
@@ -90,7 +90,6 @@ const store = useBuilderStore();
 const isPreviewMode = ref(false);
 const isSidebarOpen = ref(false);
 
-// Akıllı Mobil Davranış: Bir öğe seçildiğinde mobilde paneli otomatik aç
 watch(() => store.selectedNode, (newNode) => {
   if (newNode && window.innerWidth < 992) {
     isSidebarOpen.value = true;
@@ -102,98 +101,3 @@ const exportData = () => {
   alert("JSON Console'a yazdırıldı."); 
 };
 </script>
-
-<style>
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scrollbar-width: thin;
-  scrollbar-color: #ced4da transparent;
-}
-
-body {
-  background-color: #f1f3f5;
-  overflow: hidden;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #ced4da; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #adb5bd; }
-
-.workspace {
-  background-color: #e9ecef;
-}
-
-.canvas-wrapper {
-  background-color: #e9ecef;
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
-  background-size: 24px 24px;
-  padding: 0;
-  scroll-behavior: smooth;
-}
-
-.canvas-area {
-  width: 100%;
-  min-height: 100vh;
-  box-shadow: 0 0 24px rgba(0, 0, 0, 0.04);
-}
-
-.builder-sidebar {
-  width: 340px;
-  min-width: 340px; 
-  z-index: 1040;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
-}
-
-.sidebar-content-wrapper {
-  min-height: 0; 
-}
-
-.preview-mode .node-wrapper { border-color: transparent !important; cursor: default !important; }
-.preview-mode .node-wrapper:hover { border-color: transparent !important; }
-.preview-mode .selected-node { background-color: transparent !important; box-shadow: none !important; }
-.preview-mode .delete-btn { display: none !important; }
-.preview-mode .nested-dropzone { border: none !important; background-color: transparent !important; min-height: 10px !important; padding: 0 !important; }
-
-
-@media (max-width: 991.98px) {
-  .builder-sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    max-width: 85vw; 
-    transform: translateX(-100%); 
-    box-shadow: 5px 0 25px rgba(0,0,0,0.15) !important;
-  }
-
-  .builder-sidebar.sidebar-mobile-open {
-    transform: translateX(0);
-  }
-
-  .sidebar-overlay {
-    position: fixed;
-    top: 60px;
-    left: 0;
-    width: 100vw;
-    height: calc(100vh - 60px);
-    background: rgba(0,0,0,0.5);
-    z-index: 1030;
-    backdrop-filter: blur(2px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
-    animation: none !important;
-  }
-}
-</style>
