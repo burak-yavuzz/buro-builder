@@ -1,0 +1,245 @@
+/* src/assets/global.css */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f1f3f5;
+    overflow: hidden;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #ced4da transparent;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ced4da;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #adb5bd;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #dee2e6;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #adb5bd;
+}
+
+.fs-7 {
+    font-size: 0.85rem;
+}
+
+.transition-all {
+    transition: all 0.2s ease;
+}
+
+.hover-elevate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .08) !important;
+}
+
+.canvas-root-dropzone {
+    min-height: calc(100vh - 100px);
+    /* Bırakma alanını tam ekran yapar */
+    padding-bottom: 100px;
+    /* En alta eleman eklerken yer açar */
+}
+
+.ghost-drop {
+    opacity: 0.5;
+    background: rgba(13, 110, 253, 0.1);
+    border: 2px dashed #0d6efd;
+    border-radius: 8px;
+}
+
+.empty-state {
+    width: 100%;
+    pointer-events: none;
+}
+
+.node-wrapper {
+    border: 2px dashed transparent;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.node-wrapper:hover {
+    border-color: rgba(13, 110, 253, 0.4);
+}
+
+.selected-node {
+    border-color: #0d6efd !important;
+    z-index: 10;
+}
+
+.delete-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    z-index: 20;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nested-dropzone {
+    min-height: 60px;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.02);
+    border: 1px dashed rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+}
+
+.ghost-drop {
+    opacity: 0.5;
+    background: rgba(13, 110, 253, 0.1) !important;
+    border: 2px dashed #0d6efd !important;
+}
+
+.fs-7 {
+    font-size: 0.85rem;
+}
+
+.transition-all {
+    transition: all 0.2s ease;
+}
+
+.hover-elevate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .08) !important;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nav-pills .nav-link {
+    color: #6c757d;
+    border-radius: 4px;
+}
+
+.icon-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+}
+
+.icon-modal-content {
+    width: 550px;
+    max-width: 90vw;
+    height: 80vh;
+    max-height: 600px;
+}
+
+.icon-btn {
+    width: 55px;
+    height: 55px;
+}
+
+.icon-btn:hover {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+    transform: scale(1.05);
+}
+
+.icon-btn:hover i {
+    color: #fff !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #dee2e6;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #adb5bd;
+}
+
+.fs-xs {
+    font-size: 0.75rem;
+}
+
+.cursor-grab {
+    cursor: grab;
+}
+
+.cursor-grab:active {
+    cursor: grabbing;
+    border-color: #0d6efd !important;
+}
+
+.hover-shadow {
+    transition: all 0.2s;
+    border: 1px solid #dee2e6;
+}
+
+.hover-shadow:hover {
+    border-color: #0d6efd;
+    box-shadow: 0 4px 6px rgba(13, 110, 253, 0.1);
+    transform: translateY(-2px);
+    color: #0d6efd;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #0d6efd;
+    box-shadow: none;
+    background-color: rgba(13, 110, 253, 0.05) !important;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}

@@ -29,12 +29,3 @@ import { useBuilderStore } from '../store/builderStore';
 import CanvasNode from './CanvasNode.vue';
 const store = useBuilderStore();
 </script>
-
-<style scoped>
-.canvas-root-dropzone { 
-  min-height: calc(100vh - 100px); /* Bırakma alanını tam ekran yapar */
-  padding-bottom: 100px; /* En alta eleman eklerken yer açar */
-}
-.ghost-drop { opacity: 0.5; background: rgba(13,110,253,0.1); border: 2px dashed #0d6efd; border-radius: 8px; }
-.empty-state { width: 100%; pointer-events: none; }
-</style>

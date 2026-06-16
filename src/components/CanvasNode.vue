@@ -95,35 +95,3 @@ const isSelected = computed(() => store.selectedNodeId === props.node.id);
 const resolvedComponent = computed(() => componentMap[props.node.type]);
 const isContainer = computed(() => componentSchemas[props.node.type]?.isContainer);
 </script>
-
-<style scoped>
-.node-wrapper { 
-  border: 2px dashed transparent; 
-  transition: all 0.2s ease; 
-  cursor: pointer; 
-}
-.node-wrapper:hover { border-color: rgba(13, 110, 253, 0.4); }
-.selected-node { border-color: #0d6efd !important; z-index: 10; }
-
-.delete-btn { 
-  position: absolute; 
-  top: -12px; 
-  right: -12px; 
-  z-index: 20; 
-  border-radius: 50%; 
-  width: 28px; 
-  height: 28px; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-}
-
-.nested-dropzone { 
-  min-height: 60px; 
-  padding: 8px; 
-  background-color: rgba(0,0,0,0.02); 
-  border: 1px dashed rgba(0,0,0,0.1); 
-  border-radius: 6px;
-}
-.ghost-drop { opacity: 0.5; background: rgba(13,110,253,0.1) !important; border: 2px dashed #0d6efd !important; }
-</style>

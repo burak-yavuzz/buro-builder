@@ -231,27 +231,3 @@ const styleFields = computed(() => {
   return fields;
 });
 </script>
-
-<style scoped>
-.fs-7 { font-size: 0.85rem; }
-.transition-all { transition: all 0.2s ease; }
-.hover-elevate:hover { transform: translateY(-2px); box-shadow: 0 .5rem 1rem rgba(0,0,0,.08)!important; }
-
-.nav-pills .nav-link.active { background-color: #fff; color: #000; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-.nav-pills .nav-link { color: #6c757d; border-radius: 4px; }
-
-/* Modal Stilleri */
-.icon-modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.6); z-index: 9999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(3px); }
-.icon-modal-content { width: 550px; max-width: 90vw; height: 80vh; max-height: 600px; }
-
-/* İkon Buton Stilleri */
-.icon-btn { width: 55px; height: 55px; }
-.icon-btn:hover { background-color: #0d6efd !important; border-color: #0d6efd !important; transform: scale(1.05); }
-.icon-btn:hover i { color: #fff !important; }
-
-/* Custom Scrollbar */
-.custom-scrollbar::-webkit-scrollbar { width: 6px; }
-.custom-scrollbar::-webkit-scrollbar-track { background: #f8f9fa; }
-.custom-scrollbar::-webkit-scrollbar-thumb { background: #dee2e6; border-radius: 10px; }
-.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #adb5bd; }
-</style>

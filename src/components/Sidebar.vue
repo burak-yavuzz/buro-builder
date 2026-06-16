@@ -62,13 +62,3 @@ const groupedComponents = computed(() => {
 
 const cloneElement = (item) => store.createNode(item.type);
 </script>
-
-<style scoped>
-.fs-xs { font-size: 0.75rem; }
-.cursor-grab { cursor: grab; }
-.cursor-grab:active { cursor: grabbing; border-color: #0d6efd !important; }
-.hover-shadow { transition: all 0.2s; border: 1px solid #dee2e6; }
-.hover-shadow:hover { border-color: #0d6efd; box-shadow: 0 4px 6px rgba(13,110,253,0.1); transform: translateY(-2px); color: #0d6efd; }
-.accordion-button:not(.collapsed) { color: #0d6efd; box-shadow: none; background-color: rgba(13, 110, 253, 0.05) !important; }
-.accordion-button:focus { box-shadow: none; }
-</style>
