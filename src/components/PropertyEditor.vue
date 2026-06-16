@@ -160,16 +160,14 @@ const store = useBuilderStore();
 const node = computed(() => store.selectedNode);
 const schema = computed(() => node.value ? componentSchemas[node.value.type] : null);
 
-// MODAL VE İKON API DEĞİŞKENLERİ
 const isIconModalOpen = ref(false);
 const activeIconKey = ref(null);
 const iconSearch = ref('');
-const iconList = ref([]); // Liste kodda YOK, API'den dolacak!
+const iconList = ref([]); 
 const isLoadingIcons = ref(false);
 
-// İKONLARI API'DEN ÇEKEN FONKSİYON (Sadece 1 Kere Çalışır)
 const fetchIcons = async () => {
-  if (iconList.value.length > 0) return; // Zaten yüklüyse tekrar çekme
+  if (iconList.value.length > 0) return; 
   
   isLoadingIcons.value = true;
   try {
@@ -194,12 +192,11 @@ const filteredIcons = computed(() => {
   return iconList.value.filter(i => i.toLowerCase().includes(iconSearch.value.toLowerCase()));
 });
 
-// Modalı açtığımızda yüklemeyi tetikliyoruz
 const openIconModal = (key) => { 
   activeIconKey.value = key; 
   iconSearch.value = ''; 
   isIconModalOpen.value = true; 
-  fetchIcons(); // API İsteğini başlat
+  fetchIcons(); 
 };
 
 const selectIcon = (iconClass) => { 

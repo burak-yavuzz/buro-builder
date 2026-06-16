@@ -1,24 +1,26 @@
 const universalProps = {
-    // Mevcut özellikler
     padding: { type: 'select', label: 'İç Boşluk', group: 'style', options: ['', 'p-2', 'p-3', 'p-4', 'p-5', 'py-5'], default: '' },
     margin: { type: 'select', label: 'Dış Boşluk', group: 'style', options: ['', 'm-0', 'mb-2', 'mb-3', 'mb-4', 'mb-5'], default: 'mb-3' },
     shadow: { type: 'select', label: 'Gölge', group: 'style', options: ['', 'shadow-sm', 'shadow', 'shadow-lg'], default: '' },
     bgColor: { type: 'color', label: 'Arka Plan Rengi', group: 'style', default: '#ffffff' },
     borderRadius: { type: 'select', label: 'Köşe Yuvarlama', group: 'style', options: ['0px', '4px', '8px', '15px', '50px', '50%'], default: '0px' },
 
-    // YENİ EKLENEN TİPOGRAFİ (FONT) ÖZELLİKLERİ
     fontFamily: { type: 'select', label: 'Yazı Tipi', group: 'style', options: ['', '"Roboto", sans-serif', '"Montserrat", sans-serif', '"Open Sans", sans-serif', '"Playfair Display", serif'], default: '' },
     fontSize: { type: 'text', label: 'Font Boyutu (Örn: 18px, 1.5rem)', group: 'style', default: '' },
     fontWeight: { type: 'select', label: 'Yazı Kalınlığı', group: 'style', options: ['', '300 (İnce)', '400 (Normal)', '500 (Orta)', '600 (Yarı Kalın)', '700 (Kalın)', '900 (Ekstra Kalın)'], default: '' },
     customTextColor: { type: 'color', label: 'Özel Metin Rengi', group: 'style', default: '#000000' },
 
-    // Gelişmiş
-    animation: { type: 'select', label: 'Giriş Animasyonu', group: 'advanced', options: ['', 'animate__fadeIn', 'animate__fadeInUp', 'animate__fadeInLeft', 'animate__zoomIn'], default: '' },
+    animation: {
+        type: 'select',
+        label: 'Giriş Animasyonu',
+        group: 'advanced',
+        options: ['', 'animate__fadeIn', 'animate__fadeInUp', 'animate__fadeInDown', 'animate__fadeInLeft', 'animate__fadeInRight', 'animate__fadeInTopLeft', 'animate__fadeInTopRight', 'animate__fadeInBottomLeft', 'animate__fadeInBottomRight', 'animate__zoomIn', 'animate__zoomInUp', 'animate__zoomInDown', 'animate__zoomInLeft', 'animate__zoomInRight', 'animate__slideInUp', 'animate__slideInDown', 'animate__slideInLeft', 'animate__slideInRight', 'animate__backInUp', 'animate__backInDown', 'animate__backInLeft', 'animate__backInRight', 'animate__bounceIn', 'animate__bounceInUp', 'animate__bounceInDown', 'animate__bounceInLeft', 'animate__bounceInRight', 'animate__rotateIn', 'animate__rotateInDownLeft', 'animate__rotateInDownRight', 'animate__rotateInUpLeft', 'animate__rotateInUpRight', 'animate__flipInX', 'animate__flipInY', 'animate__lightSpeedInLeft', 'animate__lightSpeedInRight', 'animate__jackInTheBox', 'animate__rollIn'],
+        default: ''
+    },
     customClass: { type: 'text', label: 'Özel CSS Sınıfı', group: 'advanced', default: '' }
 };
 
 export const componentSchemas = {
-    // --- LAYOUT KATEGORİSİ ---
     row: {
         name: 'Satır (Row)', category: 'Layout', icon: 'fa-solid fa-grip-lines', isContainer: true,
         props: {
@@ -48,8 +50,6 @@ export const componentSchemas = {
             ...universalProps
         }
     },
-
-    // --- TEMEL BİLEŞENLER KATEGORİSİ ---
     heading: {
         name: 'Başlık', category: 'Temel', icon: 'fa-solid fa-heading',
         props: {
@@ -81,8 +81,6 @@ export const componentSchemas = {
             ...universalProps
         }
     },
-
-    // --- MEDYA KATEGORİSİ ---
     image: {
         name: 'Görsel', category: 'Medya', icon: 'fa-solid fa-image',
         props: {
@@ -132,7 +130,6 @@ export const componentSchemas = {
         }
     },
 
-    // --- GELİŞMİŞ BİLEŞENLER ---
     iconbox: {
         name: 'İkon Kutusu', category: 'Gelişmiş', icon: 'fa-solid fa-box',
         props: {
@@ -173,11 +170,10 @@ export const componentSchemas = {
             ...universalProps
         }
     },
-    // --- MEVCUT GELİŞMİŞ BİLEŞENLERİNİN ALTINA BUNLARI EKLE ---
     shortcode: {
-        name: 'Kısa Kod (Modül)', category: 'Gelişmiş', icon: 'fa-solid fa-code',
+        name: 'Kısa Kod', category: 'Gelişmiş', icon: 'fa-solid fa-code',
         props: {
-            code: { type: 'text', label: 'Kısa Kod (Örn: [form id="1"])', group: 'content', default: '[iletisim_formu]' },
+            code: { type: 'text', label: 'Kısa Kod', group: 'content', default: '[iletisim_formu]' },
             description: { type: 'text', label: 'Modül Açıklaması (Editörde Görünür)', group: 'content', default: 'İletişim Formu Modülü' },
             ...universalProps
         }
