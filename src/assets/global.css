@@ -287,6 +287,11 @@ html {
     height: 55px;
 }
 
+.carousel-control-prev,
+.carousel-control-next {
+    pointer-events: auto !important;
+}
+
 .icon-btn:hover {
     background-color: #0d6efd !important;
     border-color: #0d6efd !important;

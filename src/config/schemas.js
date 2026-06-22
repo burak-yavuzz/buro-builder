@@ -1,20 +1,25 @@
 const universalProps = {
+    visibility: {
+        type: 'select',
+        label: 'Görünürlük',
+        options: ['Her yerde göster', 'Sadece PC', 'Sadece Tablet', 'Sadece Mobil'],
+        default: 'Her yerde göster',
+        group: 'style'
+    },
     padding: { type: 'select', label: 'İç Boşluk', group: 'style', options: ['', 'p-2', 'p-3', 'p-4', 'p-5', 'py-5'], default: '' },
     margin: { type: 'select', label: 'Dış Boşluk', group: 'style', options: ['', 'm-0', 'mb-2', 'mb-3', 'mb-4', 'mb-5'], default: 'mb-3' },
     shadow: { type: 'select', label: 'Gölge', group: 'style', options: ['', 'shadow-sm', 'shadow', 'shadow-lg'], default: '' },
     bgColor: { type: 'color', label: 'Arka Plan Rengi', group: 'style', default: '#ffffff' },
     borderRadius: { type: 'select', label: 'Köşe Yuvarlama', group: 'style', options: ['0px', '4px', '8px', '15px', '50px', '50%'], default: '0px' },
-
     fontFamily: { type: 'select', label: 'Yazı Tipi', group: 'style', options: ['', '"Roboto", sans-serif', '"Montserrat", sans-serif', '"Open Sans", sans-serif', '"Playfair Display", serif'], default: '' },
     fontSize: { type: 'text', label: 'Font Boyutu (Örn: 18px, 1.5rem)', group: 'style', default: '' },
     fontWeight: { type: 'select', label: 'Yazı Kalınlığı', group: 'style', options: ['', '300 (İnce)', '400 (Normal)', '500 (Orta)', '600 (Yarı Kalın)', '700 (Kalın)', '900 (Ekstra Kalın)'], default: '' },
     customTextColor: { type: 'color', label: 'Özel Metin Rengi', group: 'style', default: '#000000' },
-
     animation: {
         type: 'select',
         label: 'Giriş Animasyonu',
         group: 'advanced',
-        options: ['', 'animate__fadeIn', 'animate__fadeInUp', 'animate__fadeInDown', 'animate__fadeInLeft', 'animate__fadeInRight', 'animate__fadeInTopLeft', 'animate__fadeInTopRight', 'animate__fadeInBottomLeft', 'animate__fadeInBottomRight', 'animate__zoomIn', 'animate__zoomInUp', 'animate__zoomInDown', 'animate__zoomInLeft', 'animate__zoomInRight', 'animate__slideInUp', 'animate__slideInDown', 'animate__slideInLeft', 'animate__slideInRight', 'animate__backInUp', 'animate__backInDown', 'animate__backInLeft', 'animate__backInRight', 'animate__bounceIn', 'animate__bounceInUp', 'animate__bounceInDown', 'animate__bounceInLeft', 'animate__bounceInRight', 'animate__rotateIn', 'animate__rotateInDownLeft', 'animate__rotateInDownRight', 'animate__rotateInUpLeft', 'animate__rotateInUpRight', 'animate__flipInX', 'animate__flipInY', 'animate__lightSpeedInLeft', 'animate__lightSpeedInRight', 'animate__jackInTheBox', 'animate__rollIn'],
+        options: ['', 'animate__fadeIn', 'animate__fadeInUp', 'animate__fadeInDown', 'animate__fadeInLeft', 'animate__fadeInRight', 'animate__zoomIn', 'animate__zoomInUp', 'animate__zoomInDown', 'animate__zoomInLeft', 'animate__zoomInRight', 'animate__slideInUp', 'animate__slideInDown', 'animate__slideInLeft', 'animate__slideInRight', 'animate__bounceIn'],
         default: ''
     },
     customClass: { type: 'text', label: 'Özel CSS Sınıfı', group: 'advanced', default: '' }
@@ -89,43 +94,67 @@ export const componentSchemas = {
             ...universalProps
         }
     },
-    slider: {
-        name: 'Hero Slider', category: 'Medya', icon: 'fa-solid fa-images',
-        props: {
-            height: { type: 'select', label: 'Yükseklik', group: 'style', options: ['400px', '600px', '100vh'], default: '600px' },
-            overlay: { type: 'select', label: 'Karanlık Filtre', group: 'style', options: ['0', '0.4', '0.7'], default: '0.4' },
-            slides: {
-                type: 'repeater',
-                label: 'Slayt Listesi',
-                group: 'content',
-                subFields: {
-                    img: { type: 'text', label: 'Görsel URL', default: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80' },
-                    title: { type: 'text', label: '1. Kelime (Normal)', default: 'Dijital' },
-                    titleColor: { type: 'color', label: '1. Kelime Rengi', default: '#ffffff' },
-                    highlight: { type: 'text', label: '2. Kelime (Vurgulu)', default: 'Vizyon' },
-                    highlightColor: { type: 'color', label: '2. Kelime Rengi', default: '#0d6efd' },
-                    desc: { type: 'textarea', label: 'Açıklama', default: 'Modern tasarımlar ve güçlü altyapı.' },
-                    descColor: { type: 'color', label: 'Açıklama Rengi', default: '#e9ecef' },
-                    btnText: { type: 'text', label: 'Buton Metni', default: 'Keşfet' },
-                    btnLink: { type: 'text', label: 'Buton Linki', default: '#' }
-                },
-                default: [
-                    {
-                        img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
-                        title: 'Dijital', titleColor: '#ffffff',
-                        highlight: 'Vizyon', highlightColor: '#0d6efd',
-                        desc: 'Modern tasarımlar ve güçlü altyapı.', descColor: '#e9ecef',
-                        btnText: 'Hemen Başla', btnLink: '#'
-                    }
-                ]
-            },
-            ...universalProps
-        }
-    },
     video: {
         name: 'Video', category: 'Medya', icon: 'fa-solid fa-circle-play',
         props: {
             videoId: { type: 'text', label: 'YouTube ID', group: 'content', default: 'dQw4w9WgXcQ' },
+            ...universalProps
+        }
+    },
+    slider: {
+        name: 'Slider',
+        category: 'Medya',
+        icon: 'fa-solid fa-layer-group',
+        isContainer: true,
+        props: {
+            // --- SLIDER GENEL AYARLARI ---
+            height: { type: 'select', label: 'Yükseklik', group: 'style', options: ['auto', '400px', '600px', '800px', '100vh'], default: '600px' },
+            borderRadius: { type: 'select', label: 'Köşe Yuvarlaklığı', group: 'style', options: ['0px', '8px', '16px', '24px', '9999px'], default: '0px' },
+            autoplay: { type: 'select', label: 'Otomatik Oynat', group: 'style', options: ['true', 'false'], default: 'true' },
+            interval: { type: 'select', label: 'Slayt Bekleme Süresi', group: 'style', options: ['2000', '3000', '5000', '7000'], default: '5000' },
+            fade: { type: 'select', label: 'Geçiş Efekti', group: 'style', options: ['', 'carousel-fade'], default: '' },
+            arrows: { type: 'select', label: 'Okları Göster', group: 'style', options: ['true', 'false'], default: 'true' },
+            dots: { type: 'select', label: 'Noktaları Göster', group: 'style', options: ['true', 'false'], default: 'true' },
+            contentPadding: { type: 'select', label: 'İçerik Boşluğu', group: 'style', options: ['p-0', 'p-2', 'p-3', 'p-4', 'p-5'], default: 'p-4' },
+            contentGap: { type: 'select', label: 'İçerik Elemanları Arası Boşluk', group: 'style', options: ['0', '0.5rem', '1rem', '1.5rem', '2rem'], default: '1rem' },
+            minContentHeight: { type: 'select', label: 'Min. İçerik Yüksekliği', group: 'style', options: ['auto', '100px', '150px', '200px', '300px'], default: '150px' },
+
+            // --- SLAYT İÇERİKLERİ ---
+            slides: {
+                type: 'repeater',
+                label: 'Slayt Sayfaları',
+                group: 'content',
+                subFields: {
+                    bgImage: { type: 'text', label: 'Arka Plan Görseli', default: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80' },
+                    overlay: { type: 'select', label: 'Karanlık Filtre (Opaklık)', options: ['0', '0.2', '0.4', '0.6', '0.8', '0.9'], default: '0.5' },
+                    overlayColor: { type: 'text', label: 'Filtre Rengi', default: '#000000' },
+                    verticalAlign: { type: 'select', label: 'Dikey Hizalama', options: ['start', 'center', 'end'], default: 'center' },
+                    horizontalAlign: { type: 'select', label: 'Yatay Hizalama', options: ['start', 'center', 'end'], default: 'center' },
+                    textAlign: { type: 'select', label: 'Metin Hizalama', options: ['start', 'center', 'end'], default: 'center' },
+                    contentMaxWidth: { type: 'select', label: 'İçerik Maks. Genişlik', options: ['100%', '480px', '640px', '800px', '960px'], default: '640px' },
+                    title: { type: 'text', label: 'Başlık', default: 'Harika Bir Başlık' },
+                    description: { type: 'text', label: 'Açıklama Metni', default: 'Buraya slaytınızın açıklamasını girebilirsiniz.' },
+                    buttonText: { type: 'text', label: 'Buton Metni', default: 'Detaylar' },
+                    buttonLink: { type: 'text', label: 'Buton Linki', default: '#' },
+                    textColor: { type: 'text', label: 'Metin Rengi', default: '#ffffff' }
+                },
+                default: [
+                    {
+                        bgImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+                        overlay: '0.5',
+                        overlayColor: '#000000',
+                        verticalAlign: 'center',
+                        horizontalAlign: 'center',
+                        textAlign: 'center',
+                        contentMaxWidth: '640px',
+                        title: 'Harika Bir Başlık',
+                        description: 'Buraya slaytınızın açıklamasını girebilirsiniz.',
+                        buttonText: 'Detaylar',
+                        buttonLink: '#',
+                        textColor: '#ffffff'
+                    }
+                ]
+            },
             ...universalProps
         }
     },
