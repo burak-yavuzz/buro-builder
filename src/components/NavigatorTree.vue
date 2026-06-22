@@ -6,8 +6,8 @@
         :class="{ 'active': store.selectedNodeId === node.id }"
         @click.stop="store.selectNode(node.id)"
       >
-        <span><i class="bi bi-box me-2"></i> {{ componentSchemas[node.type].name }}</span>
-        <button class="btn btn-link text-danger p-0" @click.stop="store.removeNode(node.id)"><i class="bi bi-x"></i></button>
+        <span class="text-dark"><i class="fa fa-box me-2"></i> {{ componentSchemas[node.type].name }}</span>
+        <button class="btn btn-link text-danger p-0" @click.stop="store.removeNode(node.id)"><i class="fa fa-times"></i></button>
       </div>
       <NavigatorTree v-if="node.children && node.children.length > 0" :nodes="node.children" />
     </li>
